@@ -1,0 +1,230 @@
+% Paper template for Advanced Physics Laboratory Course
+% Suggestion: it is better to compile it directly on overleaf, because the subfigure settings can arise problems
+% Made by Alice Pagano and Francesca Dodici
+
+\documentclass[rmp,10pt,onecolumn,fleqn,notitlepage]{revtex4-1}
+
+% LOAD PACKAGES
+
+% GENERAL PACKAGES
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{latexsym,amsmath}
+\usepackage{physics}
+\usepackage{chemformula}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\usepackage[caption=false]{subfig} % rovina la formattazione delle figure se caption=true
+
+
+\usepackage{multirow}
+
+% LISTING PACKAGES
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{inconsolata} % To change the listing font
+
+% URL PACKAGE AND SETTING
+\definecolor{linkcolor}{rgb}{0,0,0.65} %hyperlink
+\definecolor{linescolor}{rgb}{0.65,0.16,0.16}
+\definecolor{cool}{RGB}{49,54,149}
+\definecolor{hot}{RGB}{165,0,38}
+\usepackage[pdftex,colorlinks=true, pdfstartview=FitV, linkcolor= linescolor, citecolor= linescolor, urlcolor= linkcolor, hyperindex=true,hyperfigures=true]{hyperref} %hyperlink%
+
+% PAGE SETTING
+\usepackage{fancyhdr}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyfoot[R]{\textbf{\thepage}}
+\fancyfoot[L]{Università degli Studi di Padova - Dipartimento di Fisica e Astronomia Galileo Galilei}
+%\fancyhead[L]{\textbf{Advanced Physics Laboratory Report}}
+\fancyhead[L]{\ifnum\value{section}>0\nouppercase{\textbf{\leftmark}\fi}}
+\fancyhead[R]{\textbf{Name1 Surname1 - Name2 Surname2}}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.1pt}
+
+\setlength\parindent{9pt} % To adjust the intendation
+
+% SECTION STYLE
+%Redefine \thesubsection as \thesection.\alph{subsection}. (\alph replaces the default \arabic; you could also choose, e.g., \Alph, \roman, and \Roman.)
+\renewcommand{\thesection}{\textbf{\Roman{section}}}
+\renewcommand{\thesubsection}{\textbf{\arabic{subsection}}}
+\renewcommand{\thesubsubsection}{\textbf{\Alph{subsubsection}}}
+%\renewcommand{\thesection}{\textbf{\arabic{section}}}
+%\renewcommand{\thesubsection}{\thesection.\textbf{\arabic{subsection}}}
+%\renewcommand{\thesubsubsection}{\textbf{\thesection.\arabic{subsection}.\arabic{subsubsection}}}
+
+% FIGURE AND TABLE STYLE
+\renewcommand{\tablename}{\textbf{TAB.}}
+\renewcommand{\thetable}{\textbf{\arabic{table}}}
+
+% Eliminare nella compilazione finale
+%\renewcommand{\figurename}{\textbf{FIG.}}
+%\renewcommand{\thefigure}{\textbf{\arabic{figure}}}
+
+% BIBLIOGRAPHY FILE AND SETTING
+\bibliographystyle{aipnum4-1}
+\setcitestyle{numbers,square}
+
+
+
+\begin{document}
+
+
+% FRONTESPIZIO
+
+% Insert logo images above
+\begin{figure}[H]
+\begin{minipage}{0.25\linewidth}
+\includegraphics[width=\linewidth]{image/logo/logo_DFA.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+\includegraphics[width=\textwidth]{image/logo/logo_800anni.png}
+\end{minipage}
+\end{figure}
+
+% Make upper lines
+\noindent\makebox[\linewidth]{\color{linescolor} \rule{0.85\paperwidth}{1.2 pt}}
+\noindent\makebox[\linewidth]{\color{linescolor} \rule[0.3cm]{0.85\paperwidth}{1pt}}
+
+% Title
+\title{Insert title here}
+\author{Name1 Surname1 - number1 - name1.surname1@studenti.unipd.it \\ Name2 Surname2 - number2 - name2.surname2@studenti.unipd.it}
+\date{\today}
+
+% Abstract
+\begin{abstract}
+
+Insert abstract here
+
+\end{abstract}
+
+% Make title
+\maketitle
+
+% Make lower line
+\noindent\makebox[\linewidth]{\color{linescolor} \rule[0.1cm]{0.85\paperwidth}{1pt}}
+
+
+% INDEX
+
+% Index configuration
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+% Make lower lines
+\noindent\makebox[\linewidth]{\color{linescolor} \rule[-0.2cm]{0.85\paperwidth}{1pt}}
+\noindent\makebox[\linewidth]{\color{linescolor} \rule[0.3cm]{0.85\paperwidth}{1.2 pt}}
+\pagebreak
+
+
+% Page configuration: start counting page after the first one which is the title
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+
+
+
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+gidhgoirgor
+jngineofg er
+
+gdgfd
+
+non funziona
+
+In this section we describe...in FIG. \ref{fig:1_prova}.
+
+	% To insert a single figure
+	\begin{figure}[h!]
+	    \centering
+	    \includegraphics[width=0.7\textwidth]{image/prova.jpg}
+	    \caption{Scheme of...}
+	    \label{fig:1_prova}
+	\end{figure}
+
+	% To insert two subfigure
+	\begin{figure}[H]
+	\begin{minipage}[c]{0.49\linewidth}
+	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg} \label{fig:2_prova_a} }
+	\end{minipage}
+	\begin{minipage}[]{0.49\linewidth}
+	\centering
+	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg}  \label{fig:2_prova_b} }
+	\end{minipage}
+	\caption{\label{fig:2_prova} In \ref{fig:2_prova_a} ..., while \ref{fig:2_prova_b} shows... questa è una caption di prova per vedere se l'allineamento lo fa giusto. Questa è una caption di prova per vedere se l'allineamento lo fa giusto. Questa è una caption di prova per vedere se l'allineamento lo fa giusto. Questa è una caption di prova per vedere se l'allineamento lo fa giusto.}
+	\end{figure}
+%
+%	% To insert four subfigure
+%	\begin{figure}[H]
+%	\begin{minipage}[c]{0.49\linewidth}
+%	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg} \label{fig:3_prova_a} }
+%	\end{minipage}
+%	\begin{minipage}[]{0.49\linewidth}
+%	\centering
+%	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg} \label{fig:3_prova_b} }
+%	\end{minipage} \\
+%	\vfill
+%	\begin{minipage}[c]{0.49\linewidth}
+%	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg} \label{fig:3_prova_c} }
+%	\end{minipage}
+%	\begin{minipage}[]{0.49\linewidth}
+%	\centering
+%	\subfloat[][Description of the subfigure]{\includegraphics[width=0.8\textwidth]{image/prova.jpg} \label{fig:3_prova_d} }
+%	\end{minipage}
+%	\caption{\label{fig:3_prova} In \ref{fig:3_prova_a} ..., \ref{fig:3_prova_b} shows..., \ref{fig:3_prova_c} and \ref{fig:3_prova_d}...  }
+%	\end{figure}
+
+
+	% Example to insert a well-formatted table
+   	\begin{table}[H]
+	\centering
+   	 \sisetup{separate-uncertainty}
+   	 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}
+   	 l
+   	 l
+   	 S[table-format=3(1)]  %intercept
+   	 S[table-format=1.2(2)] %slope
+   	 S[table-format=1.3]
+   	 l
+   	 l
+  	 c
+  	 c
+  	}
+        \toprule
+    & \textbf{Linear fit} & \textbf{ Intercept [mV] }  & \textbf{ Slope [mV/K] } & $\pmb{r}$ & \textbf{$\pmb{\chi^{(2)}}$/ndf} & \textbf{p-value} & \textbf{$\pmb{T_c}$ [K]} & \textbf{$\pmb{V(T_c)}$ [mV]}\\
+        \colrule
+    \multirow{2}{*}{{\color{cool}\textbf{Cooling}}} & $\pmb{a_l + b_l \, x }$ &  453\pm3   &   -1.11\pm0.04 & -0.845 & 198.3/61 & $2 \cdot 10^{-16}$ & \multirow{2}{*}{ \tablenum{80\pm1}} & \multirow{2}{*}{ \tablenum{ 363\pm5} } \\
+     & $\pmb{a_r + b_r \, x }$ &  99\pm22   &  3.3\pm0.3  & 0.896 & 90.36/17 & $5 \cdot 10^{-12}$\\
+         \colrule
+    \multirow{2}{*}{{\color{hot}\textbf{Heating}}} & $\pmb{a_l + b_l \, x }$ &  521 \pm 5   &   -1.19 \pm 0.05 & -0.940 & 54.72/57 & 0.561 & \multirow{2}{*}{ \tablenum{ 109 \pm 3}} & \multirow{2}{*}{ \tablenum{ 392\pm8} } \\
+     & $\pmb{a_r + b_r \, x }$ &  173\pm10   &  2.01\pm0.09  & 0.915 & 47.81/33& 0.046\\
+    \botrule
+    \end{tabular*}
+    \caption{Description ...}
+    \label{tab:1_tab}
+    \end{table}
+
+
+\section{Conclusions}
+\label{sec:conclusions}
+Insert conclusion here... \cite{kittel_2004}, \cite{metodo_tc}
+
+
+% To add bibliography (file references.bib)
+\bibliographystyle{plain}
+\bibliography{references}{}
+
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{28}{09}{2019}
+
+
+\begin{document}
+
+
+\chapter{Introduction and basic definitions}
+
+\begin{chapquote}{Unknown author}
+    The science matters more than the programming.
+\end{chapquote}
+
+% \begin{chapquote}{William of Ockham}
+%     The simplest explanation is most likely the right one.
+% \end{chapquote}
+
+\marginpar{ \textbf{Lecture 1.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+What is the job of a physicist? A physicist want to describe nature by making prediction and modelling it with a theory. Then, from theories come applications. This is called scientific method.
+If we have more than one theory which are in accordance, we take the most simplest one and this principle is also known as \textbf{Ockham's razor}.
+If the theories are not in accordance, we maybe made a wrong prediction and we can change it in someway by looking for new stuff. It is a very short reasume of what science is.
+
+This was the method, now we want a summary of the content. For instance, what are the interesting problems in physics? We have the P vs NP problem (which is a problem of complexity of algorithm), the measurement problems, the entanglement in many body systems, quantum gravity, dark energy, Rieman hypothesis, artificial intelligence, high temperature superconductors, neutrino masses, standard model, quantum chemistry and so on and so forth.
+But, why is it not easy to solve these problems? If we could solve it we would have a jump on our understanding. All this things are a lot of parts that interacts. This is a complex system: a quantum many body system. However, solving many body quantum systems is a big data problem.
+
+Let us see how hard is the problem that we are going to attach. What can we do? We need to use supercomputers that are able to solve it. Suppose that we have available all computational power of the world, how many extractions per second can we do? The total resources are approximately \( 10^{22} \) Flop/s. For instance, in the website \url{top500.org} there is a list of the first 10 supercomputers and at the moment the fastest on Earth is \( \sim 10^{16} \) (\( \sim 415 \) PFlop/s), or in Marconi100 we have 21 PFlop/s.
+Now, let us say we want to describe complex systems, as a huge molecules, quantum gravity, superconductors and let us start from a toy model as a cube of \( N = 64 = 4 \times 4 \times 4 \) spins 1/2 which is the simplest non trivial quantum system.
+How is large the many body wake function? Since it is in an Hilbert space, the wave function has dimension \( 2^d \): hence we have \( 2^{64} \sim 10^{19} \). If we go on and we consider a \( N = 5 \times 5 \times 5 \) we have \( 10^{37} \) operations only to initialize. This is an impossible task. How do we address this problem? We simplify the model by making some hypothesis and, in general, we use brute force only at the end. Just out of curiosity, our brain operates at \( 10^{18} \) Flop/s.
+
+\section{Goals and structure of the course}
+
+The aim of this course is learning some basics of computational physics with general tools, learn how to use and develop software solution for scientific programming and an introduction to advanced tools for computational quantum physics.
+
+It is structured in the following way:  we have a theory part and a practical part.
+\begin{itemize}
+\item Theory part:
+    \begin{itemize}
+        \item we start from classical to quantum, so we have a kind of introduction to software and hardware;
+        \item then, we reasume some basics of linear algebra;
+        \item differential calculus (integrals, differential equations and so on);
+        \item Schr$\ddot{o}$dinger equation;
+        \item wave functions approximations;
+        \item renormalization group (all the numerical renormalization group ideas);
+        \item finally, we introduce Tensor Network methods.
+    \end{itemize}
+\item Practical part:
+    \begin{itemize}
+        \item Tools as: Fortran, Python, Gnuplot, Latex.
+    \end{itemize}
+\end{itemize}
+There will be weekly exercies to be upload on moodle and they will be discussed in class. The final mark will be based on how you go on the weekly exercises and the final exam will be based on a project of two-three people in which you have one month to analyze results and write a report. The argument of the report is something that can be suggested by us which is related with the course. The suggested books is “Introduction to tensor network methodsnumerical simulations of low-dimensional many-body quantum systems”, Simone Montangero. 
+
+
+
+
+
+
+
+\end{document}

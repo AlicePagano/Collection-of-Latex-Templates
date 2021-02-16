@@ -1,0 +1,147 @@
+\documentclass[9pt]{beamer}
+
+\usepackage{siunitx}
+\usepackage{calc}
+\usepackage{textpos}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xparse}% So that we can have two optional parameters
+\usepackage{mathtools}
+\usepackage{eso-pic}
+\usepackage{mdframed}
+\usepackage{newunicodechar}
+\usepackage[justification=centering]{caption}
+\usepackage{subfig}
+
+% Select font
+%\usefonttheme{sf}
+\setbeamerfont{title}{size=\huge,series=\bfseries,parent=structure,family=\fontfamily{\sfdefault}\selectfont}
+\setbeamerfont{subtitle}{size=\Large,series=\bfseries,parent=structure, family=\fontfamily{\sfdefault}\selectfont}
+\setbeamerfont{frametitle}{size=\LARGE,   family=\fontfamily{\sfdefault}\selectfont,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\large,family=\fontfamily{\sfdefault}\selectfont,series=\normalfont}
+\setbeamerfont{author}{size=\large,series=\bfseries,parent=structure,family=\fontfamily{\sfdefault}\selectfont}
+\setbeamerfont{date}{size=\normalsize,series=\bfseries,parent=structure,family=\fontfamily{\sfdefault}\selectfont}
+    
+    
+\beamertemplatenavigationsymbolsempty
+
+\NewDocumentCommand\DownArrow{O{2.0ex} O{black}}{%
+	\mathrel{\tikz[baseline] \draw [<-, line width=0.5pt, #2] (0,0) -- ++(0,#1);}
+}
+\NewDocumentCommand\UpArrow{O{2.0ex} O{black}}{%
+	\mathrel{\tikz[baseline] \draw [->, line width=0.5pt, #2] (0,0) -- ++(0,#1);}
+}
+
+\newcommand\Warning{%
+	\makebox[1.4em][c]{%
+		\makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+		\makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}
+	}
+}%
+
+\newunicodechar{⚠}{\Warning}
+
+
+\usetheme{Madrid}
+
+\colorlet{beamer@blendedblue}{red!65!black}
+
+
+\title[\fontfamily{\sfdefault}\selectfont Spatial monitoring of anti-vaccine opinions]{
+	\includegraphics[height=2cm]{images/logo/unipd_logo_white.png}\\
+	~\\
+	\textbf{
+		Spatial monitoring of anti-vaccine opinions through Twitter: a method proposal
+	}
+}
+\subtitle{\fontfamily{\sfdefault}\selectfont Life Data Epidemiology}
+\author[\fontfamily{\sfdefault}\selectfont Favaretto, Lambertini, Pagano]{Rachele Favaretto, Alessandro Lambertini, Alice Pagano}
+\date{\fontfamily{\sfdefault}\selectfont February 15, 2021}
+
+
+
+% Modify Frametitle
+\addtobeamertemplate{frametitle}{}{%
+	\begin{textblock*}{100mm}(.85\textwidth,-1.1cm) %before -0.9cm
+		\includegraphics[height=0.85cm]{images/logo/unipd_logo_white.png}
+	\end{textblock*}
+}
+
+
+
+\begin{document}
+
+	\maketitle
+
+%	\begin{frame}{Outline}
+%		\framesubtitle{~}
+%
+%		\tableofcontents
+%		
+%	\end{frame}
+
+
+	\section{Introduction}
+	
+	\begin{frame}[c]{Introduction}
+	\framesubtitle{The idea behind the project}
+
+	\boxed{\textbf{Observation}}
+	\medskip
+	
+    \alert{Anti-vaccine opinions} represent a \alert{challenge} for \alert{health care systems} in many countries all around the world
+    
+    \medskip
+    
+    $\implies$ to solve this issue \alert{information campaigns} are needed. 
+    
+    \medskip 
+    
+    These measures are long-term effective, but immediately \alert{expensive}
+    
+    \medskip
+    
+    $\implies$ useful to find a way to \alert{optimize} the \alert{allocation of resources}.
+	
+	\medskip
+	\medskip
+	\medskip
+	
+	\pause
+	
+	\boxed{\textbf{Solution}}
+	\medskip
+	
+	\alert{Vaccination} has become a \alert{central topic} in public debate on \alert{social networks} 
+	
+	\medskip
+	
+	$\implies$ use social networks to \alert{spatial monitor opinions} in a given territory.
+	
+	\end{frame}
+	
+%	\begin{frame}{Introduction}
+%	\framesubtitle{Outline}
+%    \begin{itemize}
+%        \item 
+% 
+%	\end{frame}
+	
+	
+	\section{Methods}
+	
+	\begin{frame}{Methods}
+	\framesubtitle{Collecting and pre-processing the data}
+    \begin{figure}[t]
+	    \begin{minipage}[l]{1\columnwidth}
+	    \centering
+	    \includegraphics[width=1\textwidth]{images/logo/unipd_logo_white.png}
+        \label{fig:}
+        \end{minipage}
+    \end{figure}
+	\end{frame}
+	
+	
+	
+ \end{document}
