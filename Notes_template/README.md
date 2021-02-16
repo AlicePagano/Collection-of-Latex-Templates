@@ -1,6 +1,6 @@
-# Lecture Notes of Quantum Information and Computing
+# Lecture Notes of ....
 
-Lectures notes of the Master degree course "Quantum Information and Computing" of professor Simone Montangero at the University of Padova (Academic Year 2020/2021).
+Lectures notes of the Master degree course "..." of professor ... at the University of Padova (Academic Year 2020/2021).
 
 The code of the notes is organized in multiple directories as:
 
