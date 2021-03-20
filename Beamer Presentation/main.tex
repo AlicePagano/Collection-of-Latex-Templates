@@ -19,6 +19,7 @@
 \usepackage{subfig} 
 \usepackage{tcolorbox}
 
+
 % LISTING SETTINGS
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{commentcolour}{rgb}{0.43,0.63,0.65}
@@ -48,6 +49,13 @@
 \colorlet{mydarkblue}{blue!35!black}
 \definecolor{linkcolor}{rgb}{0,0,0.65} %hyperlink
 \definecolor{linescolor}{rgb}{0.65,0.16,0.16}
+
+% Color in red the citation
+\hypersetup{
+    colorlinks,
+    citecolor=myred,
+    linkcolor=myred
+}
 
 % Select theme
 \usetheme{Madrid}
@@ -125,6 +133,7 @@
 
 
 
+
 \begin{document}
 
 	\begin{frame}[plain]
@@ -143,7 +152,7 @@
         \setbeamercolor{block body}{use=structure,fg=black,bg=myblue}
 	    \begin{block}{New protocol}
             \begin{itemize}
-            \item Two global laser pulses (with the laser phase of the second pulse shifted by $\xi$) of the same length $\tau$ and detuning $\Delta$ couple $\ket{1}$ to $\ket{r}$ and drive nearby atoms within the Rydberg blockade regime.
+            \item Two global laser pulses (with the laser phase of the second pulse shifted by $\xi$) of the same length $\tau$ and detuning $\Delta$ couple $\ket{1}$ to $\ket{r}$ and drive nearby atoms within the Rydberg blockade regime \cite{PhysRevLett.123.170503}.
             \item Neighboring atoms cannot be simultaneously excited to the Rydberg state according to the \textbf{Rydberg blockade}.
             \end{itemize}
         \end{block}
@@ -163,6 +172,11 @@
             \end{minipage}
         \end{center}
         
+        % To add bibliography (file references.bib)
+	\color{myred}\textbf{References}
+	\bibliographystyle{plain}
+	\bibliography{references}{}
+    
 	\end{frame}	
 	
 	
