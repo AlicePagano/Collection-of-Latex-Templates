@@ -134,17 +134,25 @@
     'prefix': 'label'
     'body': '\\\\id{$1}'
 
-  'Reference':
-    'prefix': 'reference'
-    'body': '\\\\idref{$1}'
-
   'Equation label':
     'prefix': 'eqlabel'
     'body': '\\\\id{eqn:$1}'
 
-  'Equation reference':
-    'prefix': 'eqreference'
-    'body': 'Eq. \\\\eqidref{$1}'
+  'Reference':
+    'prefix': 'refsmall'
+    'body': '\\\\idref{$1}'
+
+  'Equation reference range':
+    'prefix': 'eqrefrangesmall'
+    'body': 'Eq. \\\\idrefrange{$1}{$2}'
+
+  'Reference':
+    'prefix': 'ref'
+    'body': '\\\\Idref{$1}'
+
+  'Equation reference range':
+    'prefix': 'eqrefrange'
+    'body': 'Eq. \\\\Idrefrange{$1}{$2}'
 
   'Regular citation':
     'prefix': 'cite'

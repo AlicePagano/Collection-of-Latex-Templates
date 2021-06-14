@@ -31,9 +31,11 @@ Parlare dell'esperimento qryd Ref.~\cite{Aaronson2011}
 \id{fig:prova}
 \end{figure}
 
-Nella figura \idref{fig:prova}
+In \Idref{fig:prova} (if not caps \idref{fig:prova}), we can see that...
 
-In \idref{sec:sezione_uno}, we talk about ....
+In \Idref{sec:sezione_uno} (if not caps \idref{sec:sezione_uno}), we talk about ....
+
+In \Idref{subsec:ciao} (if not caps \idref{subsec:ciao}), we talk about ....
 
 \section{Sezione uno}
 \id{sec:sezione_uno}
@@ -49,8 +51,6 @@ In \idref{sec:sezione_uno}, we talk about ....
 
 \subsection{ciao}
 \id{subsec:ciao}
-
-Nella sottosezione .... \idref{subsec:ciao}
 
 
 \begin{table}[h!]
@@ -70,7 +70,7 @@ Nella sottosezione .... \idref{subsec:ciao}
     \id{tab:prova}
 \end{table}
 
-Nella tabella \idref{tab:prova}
+In \Idref{tab:prova} (if not caps \idref{tab:prova}), we note that...
 
 \lipsum[2]
 
@@ -97,7 +97,25 @@ ciao
   \id{eq:1}
 \end{equation}
 
-Cito \eqidref{eq:1}
+In \idref{eqn:prov} (if not caps \Idref{eqn:prov}), we observe...
+
+\begin{align}
+y&=a_1x+b_1\id{eqn:1prova}\\
+y&=a_2x+b_2\id{eqn:prov}\\
+y&=a_3x+b_3\id{eqn:cc}\\
+y&=a_4x+b_4\id{eqn:2prova}
+\end{align}
+
+\noindent
+
+Range example: \Idrefrange{eqn:1prova}{eqn:2prova} (if not caps \idrefrange{eqn:1prova}{eqn:2prova}) we note that ...
+
+
+
+
+
+
+
 
 
 \end{document}

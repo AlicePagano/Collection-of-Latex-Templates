@@ -440,6 +440,9 @@
 %% Typography
 %% =============================================================================
 
+%% Solid end-of-proof symbol
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
 %% Spacing between equations and text
 \makeatletter
 \g@addto@macro\normalsize{%
@@ -571,7 +574,10 @@
 \AtBeginDocument{%
     \newcommand\id[1]{\label{\namespace:#1}}
     \newcommand\idref[1]{\cref{\namespace:#1}}
-    \newcommand{\eqidref}[1]{{\textup\normalfont(\ref{\namespace:#1})}}
+    \newcommand{\idrefrange}[2]{\crefrange{\namespace:#1}{\namespace:#2}}
+    \newcommand\Idref[1]{\Cref{\namespace:#1}}
+    \newcommand{\Idrefrange}[2]{\Crefrange{\namespace:#1}{\namespace:#2}}
+
     %% Autoref
     % \renewcommand{\chapterautorefname}{Chapter}
     % \renewcommand{\sectionautorefname}{Section}
@@ -583,16 +589,22 @@
 }
 
 %% Cleveref
-\crefname{figure}{Figure}{Figures}
-\crefname{table}{Table}{Tables}
-\crefname{chapter}{Chapter}{Chapters}
-\crefname{section}{Section}{Sections}
-\crefname{subsection}{Subsection}{Subsections}
-\crefname{mylemma}{Lemma}{Lemmata}
-\crefname{myprop}{Proposition}{Propositions}
-\crefname{mycorollary}{Corollary}{Corollaries}
-\crefname{myresult}{Result}{Results}
-\crefname{footnote}{Footnote}{Footnotes}
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{Eq.}{Eqs.}
+\crefname{figure}{fig.}{figs.}
+\Crefname{figure}{Fig.}{Figs.}
+\crefname{table}{tab.}{tabs.}
+\Crefname{table}{Tab.}{Tabs.}
+\crefname{section}{sec.}{secs.}
+\Crefname{section}{Sec.}{Secs.}
+\crefname{subsection}{subsec.}{subsecs.}
+\Crefname{subsection}{Subsec.}{Subsecs.}
+\crefname{chapter}{chapter}{chapters}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{footnote}{footnote}{footnotes}
+\Crefname{footnote}{Footnote}{Footnotes}
+\crefname{mytheorem}{theorem}{theorems}
+\Crefname{mytheorem}{Theorem}{Theorems}
 
 
 %% =============================================================================
