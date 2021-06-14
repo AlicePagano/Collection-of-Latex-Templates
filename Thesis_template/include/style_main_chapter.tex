@@ -1,0 +1,24 @@
+% Title version 1
+% \def\localalign{\centering}
+%
+% \titleformat{\chapter}[display]
+% {\normalfont}
+% {
+%     \localalign{\fontsize{60}{70}\selectfont\thechapter}
+% }
+% {0.15cm}
+% {\color{black}\fontsize{30}{40}\normalfont\localalign #1}
+%
+% \titlespacing*{\chapter}{0pt}{2ex}{10ex}
+
+% Title version 2
+\titleformat{\chapter}[display]
+{\normalfont}
+{
+    \raggedleft\Large\textbf{\textsc{Chapter}}\enspace{\fontsize{50}{60}\selectfont\thechapter}\\
+    \rule{\textwidth}{3.0pt}
+}
+{0.15cm}
+{\color{black}\fontsize{30}{36}\normalfont\raggedleft #1}
+
+\titlespacing*{\chapter}{0pt}{2ex}{8ex}

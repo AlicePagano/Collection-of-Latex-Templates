@@ -1,0 +1,641 @@
+%% =============================================================================
+%% Font setting
+%% =============================================================================
+
+%% Main font
+\setmainfont{Equity-Text-A-Regular}[
+    Path=\mainpath/fonts/Equity/,
+    Extension=.ttf,
+    UprightFont=Equity-Text-A-Regular,
+    BoldFont=Equity-Text-A-Bold,
+    ItalicFont=Equity-Text-A-Italic,
+    BoldItalicFont=Equity-Text-A-Bold-Italic,
+    SmallCapsFont=Equity-Caps-A-Regular,
+    BoldFeatures = {
+        SmallCapsFont=Equity-Caps-A-Bold
+    }
+]
+
+%% Sans-serif
+ \setsansfont{Concourse-T3-Regular}[
+     Scale=MatchLowercase,
+     Path=\mainpath/fonts/Concourse/,
+     Extension=.otf,
+     UprightFont=Concourse-T3-Regular,
+     BoldFont=Concourse-T3-Bold,
+     ItalicFont=Concourse-T3-Italic,
+     BoldItalicFont=Concourse-T3-Bold-Italic,
+     SmallCapsFont=Concourse-C3-Regular,
+     BoldFeatures = {
+         SmallCapsFont=Concourse-C3-Bold
+     }
+ ]
+
+ %% Sans-serif small caps bold
+ \newfontfamily{\scfont}{Concourse-C3-Regular}[
+     Path=\mainpath/fonts/Concourse/,
+     Extension=.otf,
+     UprightFont=Concourse-C3-Regular,
+     BoldFont=Concourse-C3-Bold,
+     WordSpace=1.0,
+     LetterSpace=-4
+ ]
+
+ %% Upper case font
+ \newfontfamily{\ucfont}{Concourse-T3-Regular}[
+     Scale=MatchUppercase,
+     Path=\mainpath/fonts/Concourse/,
+     Extension=.otf,
+     UprightFont=Concourse-T3-Regular,
+     BoldFont=Concourse-T3-Bold,
+     ItalicFont=Concourse-T3-Italic,
+     BoldItalicFont=Concourse-T3-Bold-Italic,
+     WordSpace=2.5,
+     LetterSpace=10
+ ]
+
+ %% Page number font
+ \newfontfamily{\pnfont}{Concourse-T6-Regular}[
+     Scale=MatchUppercase,
+     Path=\mainpath/fonts/Concourse/,
+     Extension=.otf,
+     UprightFont=Concourse-T6-Regular,
+     WordSpace=2.5,
+     LetterSpace=10
+ ]
+
+ %% Mono-spaced
+  \setmonofont{Inconsolata}[
+      Path=\mainpath/fonts/Inconsolata/,
+      Extension=.ttf,
+      Scale=MatchLowercase,
+      WordSpace=0.8,
+      LetterSpace=0.0,
+      UprightFont=Inconsolata-Regular,
+      BoldFont=Inconsolata-Bold
+  ]
+
+ \fontdimen2\font=.25em % or .3333em
+ \fontdimen3\font=\dimexpr.5em-\fontdimen2\font
+ \fontdimen4\font=\dimexpr\fontdimen2\font-.2em
+
+
+%% =============================================================================
+%% Colors
+%% =============================================================================
+
+%% Links
+\definecolor{ccolor}{HTML}{bc2323} % Cite
+\definecolor{dcolor}{HTML}{2370bc} % DOI
+\definecolor{rcolor}{HTML}{bc2323} % Internal links
+
+%% =============================================================================
+%% TikZ styles
+%% =============================================================================
+
+%% Styles
+\tikzstyle{roundlabel}=[circle,inner sep=1.5pt,fill=tikzgrey,color=black,text=white,draw,font=\sffamily\footnotesize]
+\tikzstyle{TlabelB}=[rectangle callout,rounded corners=0.03cm,inner sep=3.0pt,fill=tikzlight,color=tikzlight,text=tikzgrey,draw,font=\sffamily\footnotesize,callout absolute pointer={#1},at={#1},above=0.2cm,align=center]
+\tikzstyle{smallbullet}=[circle,inner sep=0.5pt,fill=tikzorange,color=tikzorange,text=white,draw,font=\sffamily\small\bfseries]
+\tikzstyle{labelline}=[rounded corners=0.5mm,black,line width=2pt,solid]
+\tikzstyle{labeltext}=[color=white,fill=white,inner sep=0.5pt,text=tikzgrey,draw,font=\sffamily\footnotesize]
+\tikzstyle{math}=[font=\Large,align=center]
+\tikzstyle{figure}=[anchor=south west]
+\tikzstyle{label}=[circle,inner sep=0.07cm,fill=white,text=black,draw=white]
+\tikzstyle{tlabel}=[inner sep=0.07cm,text=black]
+\tikzstyle{wlabel}=[inner sep=0.07cm,text=black,anchor=west,font=\footnotesize]
+\tikzstyle{figtext}=[anchor=west, rounded corners=0.0cm,inner sep=0.07cm,fill=white,color=white,text=black,draw,font=\sffamily\footnotesize]
+
+%% Grid
+\newcommand{\grid}{%
+    \draw[step=0.2cm,sublatticecolor,very thin] (0,0) grid (11,17);
+    \draw[step=1.0cm,black,thin] (0,0) grid (11,17);
+    \foreach \x in {0,1,...,11}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,font=\sffamily\tiny] {\x};
+    \foreach \y in {0,1,...,17}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,font=\sffamily\tiny] {\y};
+}
+
+%% Scale (for labels)
+\tikzset{every picture/.append style={scale=1.22807}}
+
+
+%% =============================================================================
+%% Itemize labels
+%% =============================================================================
+
+% Itemize labels
+\def\labelitemi{\raisebox{0.3mm}{\hbox{\normalsize\pmb{\rightarrow}}}}
+
+% Enumerate labels
+\setenumerate[1]{%
+    label={\sffamily\bfseries\arabic*},
+    itemsep=0.8em,
+    topsep=1em,
+    labelsep=1.0em
+}
+
+\setenumerate[2]{%
+    label={\sffamily\bfseries\alph*},
+    itemsep=0.8em,
+    topsep=1em,
+    labelsep=1.0em
+}
+
+%% =============================================================================
+%% Labels
+%% =============================================================================
+
+%% Figures
+\newcommand{\lbl}[1]{\bf\sffamily\small(#1)}
+\newcommand{\CaptionMark}[1]{{\boldmath\textbf{#1}}}
+\newcommand{\CaptionLabel}[1]{\textbf{(#1)}}
+\newcommand{\CaptionLabelR}[1]{(#1)}
+
+%% Reformat equation labels at equations and in text
+\makeatletter
+\def\tagform@#1{\maketag@@@{\footnotesize\ignorespaces#1\unskip\@@italiccorr}}
+\makeatother
+
+%% Figure numbering
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+%% =============================================================================
+%% Math environments
+%% =============================================================================
+
+%% Spacing in cases
+\makeatletter
+\def\env@cases{%
+    \let\@ifnextchar\new@ifnextchar
+    \left\lbrace
+    \def\arraystretch{1.2}%
+    \array{l@{\quad}l@{}}% Formerly @{}l@{\quad}l@{}
+}
+\makeatother
+
+%% =============================================================================
+%% Chapter und section design
+%% =============================================================================
+
+%% Dotfill
+\makeatletter
+\newcommand \Dotfill {\leavevmode \cleaders \hb@xt@ .25em{\hss .\hss }\hfill \kern \z@}
+\makeatother
+
+%% Section
+\titleformat{\section}[hang]
+{\normalfont\raggedright\huge}
+{\thesection}
+{0.3cm}
+{#1}
+\titlespacing*{\section}{0pt}{4.5ex plus 1ex minus .2ex}{3.5ex plus .2ex}
+
+%% Subsection
+\titleformat{\subsection}[hang]
+{\normalfont\Large\raggedright}
+{\thesubsection}
+{0.3cm}
+{#1}
+\titlespacing*{\subsection}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+%% Subsubsection
+\titleformat{\subsubsection}[hang]
+{\normalfont\large\raggedright\bfseries\boldmath}
+{}
+{0.0cm}
+{#1}
+\titlespacing*{\subsubsection}{0pt}{4.5ex}{2.3ex}
+
+%% Paragraph
+\titleformat{\paragraph}[hang]
+{\normalfont\normalsize\raggedright\itshape}
+{}
+{0.0cm}
+{#1}
+\titlespacing*{\paragraph}{0pt}{4.5ex}{2.5ex}
+
+%% Subparagraph
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\raggedright\itshape}
+{}
+{0.0cm}
+{#1~---}
+\titlespacing*{\subparagraph}{0pt}{2.5ex}{0.5ex}
+
+
+%% =============================================================================
+%% Aphorisms
+%% =============================================================================
+
+\makeatletter
+\newcommand{\aphorismMOD}[4][\@nil]{
+    \def\aphtmp{#1}%
+    \hfill
+    \parbox{#4}{
+        \parbox{\linewidth}{
+            \raggedright%
+            \setstretch{1.1}%
+            {\footnotesize%
+                \textit{#2}\par}
+            }
+            \\[12pt]
+            \parbox{\linewidth}{
+                \raggedright%
+                \setstretch{1.1}%
+                {\footnotesize%
+                    ---~\textsc{#3}%
+                    \ifx\aphtmp\@nnil\else%
+                    \\\leavevmode\phantom{---}~\textit{in}\enspace{#1}
+                    \fi%
+                \par}
+            }
+        }
+        \\[12mm]
+    }
+    \makeatother
+
+
+%% =============================================================================
+%% Listings
+%% =============================================================================
+
+\lstset{
+        basicstyle=\scriptsize\sffamily, % Standardschrift
+        % numbers=left,               % Ort der Zeilennummern
+        numberstyle=\tiny\sffamily, % Stil der Zeilennummern
+        stepnumber=1,               % Abstand zwischen den Zeilennummern
+        numbersep=0pt,              % Abstand der Nummern zum Text
+        tabsize=2,                  % Groesse von Tabs
+        extendedchars=true,         %
+        breaklines=true,            % Zeilen werden Umgebrochen
+        keywordstyle=\color{tikzorange},
+        % frame=l,
+        % framerule=1.5pt,
+        % rulecolor=\color{black},
+      % keywordstyle=[1]\textbf,    % Stil der Keywords
+      % keywordstyle=[2]\textbf,    %
+      % keywordstyle=[3]\textbf,    %
+      % keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
+        stringstyle=\bfseries\sffamily, % Farbe der String
+        showspaces=false,           % Leerzeichen anzeigen ?
+        showtabs=false,             % Tabs anzeigen ?
+        xleftmargin=17pt,
+        framexleftmargin=5pt,
+        framexrightmargin=5pt,
+        framextopmargin=5pt,
+        framexbottommargin=5pt,
+        % framesep=10pt,
+      %framexbottommargin0pt,
+        backgroundcolor=\color{listingback},
+        showstringspaces=false      % Leerzeichen in Strings anzeigen ?
+    }
+
+\lstloadlanguages{% Check Dokumentation for further languages ...
+      % [Visual]Basic
+      % Pascal
+      % C
+        C++
+      % XML
+      % HTML
+      %Java
+    }
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{mygray}{\parbox{0.988\linewidth}{\hspace{5pt}#1#2#3}}}
+
+%% =============================================================================
+%% Hyperref
+%% =============================================================================
+
+\hypersetup{
+        %bookmarks=true,        % show bookmarks bar?
+        unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+        pdftoolbar=true,        % show Acrobat’s toolbar?
+        pdfmenubar=true,        % show Acrobat’s menu?
+        pdffitwindow=false,     % window fit to page when opened
+        pdfstartview={FitH},    % fits the width of the page to the window
+        pdftitle={}, % title
+        pdfauthor={Nicolai Lang},       % author
+        pdfsubject={Dissertation 2019},   % subject of the document
+        pdfcreator={Nicolai Lang},      % creator of the document
+        pdfproducer={Nicolai Lang},     % producer of the document
+        pdfkeywords={}, % list of keywords
+        pdfnewwindow=true,      % links in new window
+        colorlinks=true,        % false: boxed links; true: colored links
+        linkcolor=rcolor,      % color of internal links
+        citecolor=ccolor,         % color of links to bibliography
+        filecolor=magenta,      % color of file links
+        urlcolor=dcolor           % color of external links
+    }
+
+    %% Font for URLs
+    \renewcommand\UrlFont{\ttfamily}
+
+    %% Backref
+    \renewcommand*{\backref}[1]{}
+    \renewcommand*{\backrefalt}[4]{%
+        \ttfamily\footnotesize
+        \ifcase #1 (Not cited.)%
+        \or        (Cited on page~#2.)%
+        \else      (Cited on pages~#2.)%
+    \fi}
+
+
+%% =============================================================================
+%% Captions
+%% =============================================================================
+
+%% Styling
+\DeclareCaptionLabelSeparator{vline}{~•~}
+\DeclareCaptionFormat{myformat}{\small\sffamily{\scfont\textbf{#1#2}}#3}
+
+\DeclareCaptionStyle{mystyle}[
+        margin=5mm,
+        justification=centering
+    ]{margin={0mm,0mm},labelsep=vline}
+
+\captionsetup{style=mystyle,format=myformat}
+
+    %% 'See next page' marker
+\newcommand{\contnextpage}{~~$\curvearrowright$}
+\newcommand{\continued}{$\curvearrowright$~~}
+
+
+%% =============================================================================
+%% Header & Footer design
+%% =============================================================================
+
+\makeatletter
+
+\renewcommand{\headrule}{
+                    %\vbox to 7pt{\hbox to \linewidth{\color{top}\footnotesize\dotfill}\vss}
+}
+
+\def\cleardoublepage{
+    \clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+
+\makeatother
+
+
+
+%% -----------------------------------------------------------------------------
+%% Header layout for A4 (digital)
+%% -----------------------------------------------------------------------------
+
+%% Main
+\fancypagestyle{default}{
+    \fancyhf{}
+    \fancyfoot[CO]{\pnfont\footnotesize\thepage}
+    \fancyfoot[CE]{\pnfont\footnotesize\thepage}
+    \fancyhead[CO]{\ucfont\footnotesize\MakeUppercase{\rightmark}}
+    \fancyhead[CE]{\ucfont\footnotesize\MakeUppercase{\leftmark}}
+}
+
+%% Summary
+\fancypagestyle{summary}{
+    \fancyhf{}
+    \fancyfoot[CE]{\pnfont\footnotesize\thepage}
+    \fancyfoot[CO]{\pnfont\footnotesize\thepage}
+    \fancyhead[CE]{\ucfont\footnotesize\MakeUppercase{In a nutshell}}
+    \fancyhead[CO]{\ucfont\footnotesize\MakeUppercase{In a nutshell}}
+}
+
+%% Numbered
+\fancypagestyle{numbered}{
+    \fancyhf{}
+    \fancyfoot[CE]{\pnfont\footnotesize\thepage}
+    \fancyfoot[CO]{\pnfont\footnotesize\thepage}
+}
+
+%% Plain page empty
+\fancypagestyle{plain}{
+    \renewcommand{\headrule}{}
+    \fancyhf{}
+    \fancyfoot{}
+    \fancyhead{}
+}
+
+%% Set chapter and section marks
+\pagestyle{default}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+
+%% =============================================================================
+%% Footnotes
+%% =============================================================================
+
+%% Running numbering
+\makeatletter \@removefromreset{footnote}{chapter} \makeatother
+
+
+%% =============================================================================
+%% Typography
+%% =============================================================================
+
+%% Spacing between equations and text
+\makeatletter
+\g@addto@macro\normalsize{%
+    \abovedisplayskip=10.0pt plus 1.0pt minus 1.0pt
+    \belowdisplayskip=10.0pt plus 1.0pt minus 1.0pt
+    \abovedisplayshortskip=0.0pt plus 1.0pt minus 1.0pt
+    \belowdisplayshortskip=6.0pt plus 1.0pt minus 1.0pt
+}
+\makeatother
+
+%% Avoid orphans etc.
+% \clubpenalty = 10000
+% \widowpenalty = 10000
+% \displaywidowpenalty = 10000
+
+%% DOI style
+\let\origdoi\doi
+\renewcommand{\doi}[1]{{\footnotesize\bfseries\texttt{\origdoi{#1}}}}
+
+%% arXiv
+\newcommand{\arxiv}[1]{{\footnotesize\bfseries\texttt{arXiv:\href{http://arxiv.org/abs/#1}{#1}}}}
+\let\eprint\arxiv
+
+%% =============================================================================
+%% Theorems
+%% =============================================================================
+
+\newtheoremstyle{theoremitalic}% name of the style to be used
+{20pt}% measure of space to leave above the theorem. E.g.: 3pt
+{20pt}% measure of space to leave below the theorem. E.g.: 3pt
+{\itshape}% name of font to use in the body of the theorem
+{0pt}% measure of space to indent
+{}% name of head font
+{}% punctuation between head and body
+{ }% space after theorem head; " " = normal interword space
+{\sffamily\textbf{\textsc{#1~#2}:\enspace#3}\\*[5pt]}
+
+\newtheoremstyle{theoremsans}% name of the style to be used
+{20pt}% measure of space to leave above the theorem. E.g.: 3pt
+{20pt}% measure of space to leave below the theorem. E.g.: 3pt
+{\sffamily}% name of font to use in the body of the theorem
+{0pt}% measure of space to indent
+{}% name of head font
+{}% punctuation between head and body
+{ }% space after theorem head; " " = normal interword space
+{\sffamily\textbf{\textsc{#1~#2}:\enspace#3}\\*[5pt]}
+
+\theoremstyle{theoremitalic}
+\newtheorem{myresult}{Result}[chapter]
+\newtheorem{myprop}{Proposition}[chapter]
+\newtheorem{mylemma}{Lemma}[chapter]
+\newtheorem{mytheorem}{Theorem}[chapter]
+\newtheorem{myconjecture}{Conjecture}[chapter]
+\newtheorem{mycorollary}{Corollary}[chapter]
+\newtheorem{mydef}{Definition}[chapter]
+\newtheorem{myremark}{Remark}[chapter]
+
+\theoremstyle{theoremsans}
+\newtheorem{myexample}{Example}[chapter]
+
+
+%% =============================================================================
+%% Appendices
+%% =============================================================================
+
+%% Appendices after each chapter
+\AtBeginEnvironment{subappendices}{%
+    {%
+        \titleformat{\chapter}[display]%
+        {\normalfont\scshape\bfseries}%
+        {}{0cm}{%
+            \centering\Large #1 for Chapter\enspace{\Huge\thechapter}\\
+            % \rule{\textwidth}{4pt}
+        }
+        \titlespacing*{\chapter}{0pt}{10ex}{12ex}
+        \chapter*{Appendices}
+        \addcontentsline{toc}{chapter}{\protect\hphantom{\numberline{\thechapter}}\normalfont\textit{Appendices}}%
+    }
+    % \counterwithin{figure}{section}
+    % \counterwithin{table}{section}
+}
+
+
+
+%% =============================================================================
+%% Floats
+%% =============================================================================
+
+%% Place float at even pages
+\newcommand\atevenpage[1]{%
+    \afterpage{\clearpage% be sure, that there are no pending floats
+        \ifodd\value{page}% still a odd page
+        \atevenpage{#1}%
+        \else
+        #1%
+        \fi
+    }%
+}
+
+%% Place float at odd pages
+\newcommand\atoddpage[1]{%
+    \afterpage{\clearpage% be sure, that there are no pending floats
+        \ifeven\value{page}% still a odd page
+        \atoddpage{#1}%
+        \else
+        #1%
+        \fi
+    }%
+}
+
+%% Floats get their own page
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\floatpagefraction}{.85}
+\renewcommand{\textfraction}{.15}
+
+%% Flush figures to top of page
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
+
+%% =============================================================================
+%% Namespaces (make labels local)
+%% =============================================================================
+
+\newcommand{\usingnamespace}[1]{\def\namespace{#1}}
+
+\AtBeginDocument{%
+    \newcommand\id[1]{\label{\namespace:#1}}
+    \newcommand\idref[1]{\cref{\namespace:#1}}
+    \newcommand{\eqidref}[1]{{\textup\normalfont(\ref{\namespace:#1})}}
+    %% Autoref
+    % \renewcommand{\chapterautorefname}{Chapter}
+    % \renewcommand{\sectionautorefname}{Section}
+    % \renewcommand{\subsectionautorefname}{Subsection}
+    % \renewcommand{\figureautorefname}{Figure}
+    % \renewcommand{\tableautorefname}{Table}
+    % %% My environments
+    % \newcommand{\lemmaautorefname}{Lemma}
+}
+
+%% Cleveref
+\crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\crefname{chapter}{Chapter}{Chapters}
+\crefname{section}{Section}{Sections}
+\crefname{subsection}{Subsection}{Subsections}
+\crefname{mylemma}{Lemma}{Lemmata}
+\crefname{myprop}{Proposition}{Propositions}
+\crefname{mycorollary}{Corollary}{Corollaries}
+\crefname{myresult}{Result}{Results}
+\crefname{footnote}{Footnote}{Footnotes}
+
+
+%% =============================================================================
+%% Table of contents
+%% =============================================================================
+
+%% Fix width of page number column in TOC
+\makeatletter
+\renewcommand{\@pnumwidth}{6.5mm}
+\makeatother
+
+
+%% =============================================================================
+%% Index
+%% =============================================================================
+
+\newcommand{\IDX}[1]{#1\index{#1}}
+
+\newcommand{\keywords}[1]{%
+    \renewcommand*{\do}[1]{\index{##1|(}}
+    \docsvlist{#1}
+}
+
+\newcommand{\delkeywords}[1]{%
+    \renewcommand*{\do}[1]{\index{##1|)}}
+    \docsvlist{#1}
+}
+
+%% =============================================================================
+%% Formatting
+%% =============================================================================
+
+\newcommand{\cpdraft}{%
+    % \ifdraft\clearpage\fi
+    \clearpage
+}
+
+\newcommand{\pbdraft}[1]{%
+    % \ifdraft\pagebreak[#1]\fi
+    \pagebreak[#1]
+}
+
+\newcommand{\npbdraft}[1]{%
+    % \ifdraft\nopagebreak[#1]\fi
+    \nopagebreak[#1]
+}

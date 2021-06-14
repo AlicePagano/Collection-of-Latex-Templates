@@ -1,0 +1,80 @@
+\def\titleScale{1.1}
+\def\titleLowerShift{0.0}
+
+\begin{titlepage}
+
+  \begin{tikzpicture}[
+          remember picture,
+          overlay,
+          shift={(current page.north)},
+          y=-1cm,
+          font=\sffamily,
+          scale=\titleScale,
+          every node/.style={transform shape}
+      ]
+       %% Grid
+      % \draw[step=1cm,gray,very thin] (current page.north west) grid (current page.south east);
+
+      %% Logo
+      \node[anchor=north,shift={(0,1.5)}] (number) at (current page.north) {%
+          \includegraphics[width=3cm]{\mainpath/titlepage/figures/UNIPD.png}
+      };
+
+      %% Title
+      \node[anchor=center,align=center,shift={(0,6.5)},font=\Large\sffamily] at (current page.north) {
+          \textbf{Controlled-phase gate optimization}\\
+          \textbf{with Optimal Control}
+      };
+
+      %% Degree type
+      \node[anchor=center,align=center,shift={(0,8.5)},font=\sffamily] at (current page.north) {%
+          Master Degree in Physics of Data
+      };
+
+      %% Autor
+      \node[anchor=center,align=center,shift={(0,10)}] at (current page.north) {%
+          \scriptsize Candidate:
+      };
+      \node[anchor=center,align=center,shift={(0,10.8)}] at (current page.north) {%
+          \large\textbf{Alice Pagano}
+      };
+
+      %% Hauptberichter
+      \node[anchor=west,align=left,shift={($(-3.5,14.0)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize Thesis supervisor:
+      };
+      \node[anchor=west,align=left,shift={($(0.5,14.0)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize{Prof. Hans Peter Büchler}
+      };
+
+      %% Mitberichter
+      \node[anchor=west,align=left,shift={($(-3.5,14.5)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize Thesis co-supervisor:
+      };
+      \node[anchor=west,align=left,shift={($(0.5,14.5)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize{Prof. Simone Montangero}
+      };
+
+      %% Prüfung
+      \node[anchor=west,align=left,shift={($(-3.5,15.5)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize Day of the Final Dissertation:
+      };
+      \node[anchor=west,align=left,shift={($(0.5,15.5)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize{13. September 2021}
+      };
+
+      %% Institut
+      \node[anchor=center,align=center,shift={($(0,18.0)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize Dipartimento di Fisica e Astronomia “Galileo Galilei”\\
+          \scriptsize Università degli studi di Padova
+      };
+
+      %% Jahr
+      \node[anchor=center,align=center,shift={($(0,18.7)+(0,\titleLowerShift)$)}] at (current page.north) {%
+          \scriptsize A.A. 2020/21
+      };
+
+  \end{tikzpicture}
+
+\end{titlepage}
+\clearpage{\pagestyle{empty}\cleardoublepage}

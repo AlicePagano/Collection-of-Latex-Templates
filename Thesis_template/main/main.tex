@@ -1,0 +1,112 @@
+\providecommand{\mainpath}{..}
+\documentclass[a4paper,12pt,twoside,openright]{book}
+
+% Import packages, setting and new command
+\input{\mainpath/include/packages.tex}
+\input{\mainpath/include/settings.tex}
+\input{\mainpath/include/commands.tex}
+
+\usepackage{subfiles}
+
+\begin{document}
+
+    %% Default namespace
+    \usingnamespace{default}
+
+    %% Empty page style
+    \pagestyle{empty}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % FRONTMATTER
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %% Roman page numbers
+    \frontmatter
+
+    %% Page numbers start here
+    \setcounter{page}{1}
+
+    % titlepage
+    \input{\mainpath/titlepage/titlepage.tex}
+
+    %% Simple chapter layout
+    \raggedbottom
+    \input{\mainpath/include/style_simple_chapter.tex}
+
+    %% Numbered page layout
+    \pagestyle{numbered}
+
+    %% abstract
+    \subfile{\mainpath/titlepage/abstract.tex}
+
+    %% Table of contents
+    \newpage
+    \phantomsection\id{tableofcontents}
+    \addcontentsline{toc}{chapter}{Contents}
+    \tableofcontents
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % THESIS REPORT CONTENT (CHAPTERS)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \mainmatter
+
+    %% Main chapter layout
+    \input{\mainpath/include/style_main_chapter.tex}
+
+    %% Main page layout
+    \pagestyle{default}
+
+    %% CHAPTER 1: INTRODUCTION
+    \subfile{\mainpath/chapters/introduction/introduction.tex}
+
+    %% CHAPTER 1: PROVA
+    \subfile{\mainpath/chapters/prova/prova.tex}
+
+    %% *****************************************************************************
+    %% List of figuers
+    %% *****************************************************************************
+
+    %% Simple chapter layout
+    \input{\mainpath/include/style_simple_chapter.tex}
+
+    %% Numbered page layout
+    % \clearpage
+    % \pagestyle{numbered}
+
+    %% Add to TOC
+    % \newpage\thispagestyle{empty}~
+    \newpage\thispagestyle{empty}
+    \phantomsection\id{listoffig}
+    \addcontentsline{toc}{chapter}{List of Figures}
+
+    %% Generate LOF
+    \listoffigures
+
+    %% *****************************************************************************
+    %% Bibliography
+    %% *****************************************************************************
+
+    %% Add to TOC
+    \newpage\thispagestyle{empty}
+    \phantomsection\id{bibliography}
+    \addcontentsline{toc}{chapter}{Bibliography}
+
+    %% Generate bib
+    \bibliographystyle{\mainpath/bibtex/bibstyle}
+    {\footnotesize\bibliography{\mainpath/bibtex/bibliography.bib}}
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % BIBLIOGRAPHY
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \clearpage{\pagestyle{empty}\cleardoublepage}
+    % \clearpage{\cleardoublepage}
+    %\bibliographystyle{unsrt}
+    %\bibliography{../bibliography/bibliography.bib}
+    %\input{bibliography/bibliography.tex}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
